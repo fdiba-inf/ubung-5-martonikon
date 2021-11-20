@@ -20,7 +20,24 @@ public class UniqueNumbers {
         int[] uniqueNumbers = new int[numbers.length];
         // Find unique numbers in numbers
 
+        // bubbleSort(numbers);
+
+        int br = 0;
+        for(int i = 0; i < numbers.length; i++) {
+          boolean duplicated = false;
+          for(int j = 0; j < uniqueNumbers.length; j++) {
+            if(uniqueNumbers[j] == numbers[i]) {
+              duplicated = true;
+            }
+          }
+          if(!duplicated) {
+            uniqueNumbers[br] = numbers[i];
+            duplicated = false;
+            br++;
+          }
+        }
+
         String uniqueNumbersAsString = Arrays.toString(uniqueNumbers);
-        System.out.println("Unique numbers: " + uniqueNumbersAsString);
+        System.out.println("Unique numbers: " +uniqueNumbersAsString);
     }
 }
